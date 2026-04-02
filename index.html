@@ -119,7 +119,12 @@
 
 <div class="btn-container">
   <button class="btn levi" onclick="goPage('form.html')">Levi Hunt</button>
-  <button class="btn discord" onclick="window.location='https://discord.gg/exH5gwGP3U'">Discord</button>
+
+  <!-- ✅ FIXED DISCORD BUTTON -->
+  <a href="https://discord.gg/exH5gwGP3U" target="_blank">
+    <button class="btn discord">Discord</button>
+  </a>
+
 </div>
 
 <footer>
@@ -127,14 +132,12 @@
 </footer>
 
 <script>
-  // Dark/light mode
   if(localStorage.getItem("theme")==="light"){ document.body.classList.add("light"); }
   function toggleTheme(){
     document.body.classList.toggle("light");
     localStorage.setItem("theme", document.body.classList.contains("light")?"light":"dark");
   }
 
-  // Page animation
   window.onload = ()=>{ document.body.classList.add("show"); }
 
   function goPage(page){
@@ -142,7 +145,6 @@
     setTimeout(()=>{ window.location.href = page; },400);
   }
 
-  // Particle effect
   const canvas=document.getElementById("canvas");
   const ctx=canvas.getContext("2d");
   canvas.width=window.innerWidth;
