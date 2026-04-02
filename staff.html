@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Staff - Gaming Community Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --bg-start: #1b2a3d;
+      --bg-end: #3d6b9a;
+      --text: white;
+      --accent: #33ffcc;
+    }
+
+    body.light {
+      --bg-start: #eaf6fc;
+      --bg-end: #cfdff3;
+      --text: #111;
+      --accent: #33ccaa;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; font-family:'Roboto',sans-serif; }
+
+    body {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background: linear-gradient(135deg,var(--bg-start),var(--bg-end));
+      color: var(--text);
+      transition:0.5s;
+    }
+
+    header, footer {
+      position: fixed;
+      width:100%;
+      backdrop-filter:blur(12px);
+      background: rgba(0,0,0,0.3);
+      color:var(--text);
+      z-index:1000;
+      padding:15px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    header .title { 
+      margin-left: 50%; 
+      transform: translateX(-50%); 
+      font-weight:bold; 
+      font-size:clamp(18px,2vw,26px); 
+    }
+
+    header .nav a {
+      margin-left: 25px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header .nav a:hover { text-decoration: underline; }
+
+    footer { bottom:0; text-align:center; font-size:14px; }
+
+    main {
+      margin-top:100px;
+      padding: 20px 40px;
+      flex:1;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    h1 {
+      margin-bottom:30px;
+      text-align:center;
+      font-size:clamp(32px,5vw,50px);
+      text-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .staff-card {
+      margin-bottom:20px;
+      padding:15px 20px;
+      background: rgba(0,0,0,0.25);
+      border-radius:12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .staff-card h2 {
+      font-size:clamp(20px,3vw,28px);
+      margin-bottom:10px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="title">🎮 Gaming Community Server</div>
+  <div class="nav">
+    <a href="games.html">Games</a>
+    <a href="events.html">Events</a>
+    <a href="staff.html">Staff</a>
+    <a href="rules.html">Rules</a>
+  </div>
+</header>
+
+<main>
+  <h1>Meet Our Staff</h1>
+
+  <div class="staff-card">
+    <h2>EzGamer - Owner</h2>
+    <p>Founder and main admin. Oversees server activities and events.</p>
+  </div>
+
+  <div class="staff-card">
+    <h2>Shadow - Developer </h2>
+    <p>Maintains server bots, website, and keeps everything running smoothly.</p>
+  </div>
+
+  <div class="staff-card">
+    <h2>GamerBoyz955 - </h2>
+    <p>Plans tournaments, fun events, and gaming challenges.</p>
+  </div>
+<div class="staff-card">
+    <h2>Light yagami - Moderator</h2>
+    <p>Ensures rules are followed, helps members, and manages disputes.</p>
+  </div>
+  
+
+</main>
+
+<footer>
+  © 2026 All Rights Reserved by EzGamer
+</footer>
+
+</body>
+</html>

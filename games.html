@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Games - Gaming Community Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --bg-start: #1f1c2c;
+      --bg-end: #928dab;
+      --text: white;
+      --accent: #ffcc00;
+    }
+
+    body.light {
+      --bg-start: #e0eafc;
+      --bg-end: #cfdef3;
+      --text: #111;
+      --accent: #ff8800;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; font-family:'Roboto',sans-serif; }
+
+    body {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background: linear-gradient(135deg,var(--bg-start),var(--bg-end));
+      color: var(--text);
+      transition:0.5s;
+    }
+
+    header, footer {
+      position: fixed;
+      width:100%;
+      backdrop-filter:blur(12px);
+      background: rgba(0,0,0,0.3);
+      color:var(--text);
+      z-index:1000;
+      padding:15px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    header .title { 
+      margin-left: 50%; 
+      transform: translateX(-50%); 
+      font-weight:bold; 
+      font-size:clamp(18px,2vw,26px); 
+    }
+
+    header .nav a {
+      margin-left: 25px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header .nav a:hover { text-decoration: underline; }
+
+    footer { bottom:0; text-align:center; font-size:14px; }
+
+    main {
+      margin-top:100px;
+      padding: 20px 40px;
+      flex:1;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    h1 {
+      margin-bottom:30px;
+      text-align:center;
+      font-size:clamp(32px,5vw,50px);
+      text-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .game-card {
+      margin-bottom:20px;
+      padding:15px 20px;
+      background: rgba(0,0,0,0.25);
+      border-radius:12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .game-card h2 {
+      font-size:clamp(20px,3vw,28px);
+      margin-bottom:10px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="title">🎮 Gaming Community Server</div>
+  <div class="nav">
+    <a href="games.html">Games</a>
+    <a href="events.html">Events</a>
+    <a href="staff.html">Staff</a>
+    <a href="rules.html">Rules</a>
+  </div>
+</header>
+
+<main>
+  <h1>Our Games</h1>
+
+  <div class="game-card">
+    <h2>Roblox</h2>
+    <p>Join and create adventures in countless worlds with Roblox!</p>
+  </div>
+
+  <div class="game-card">
+    <h2>GTA</h2>
+    <p>Experience action, missions, and chaos in Grand Theft Auto.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>Minecraft</h2>
+    <p>Build, explore, and survive in the blocky world of Minecraft.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>CS:GO</h2>
+    <p>Competitive shooting and teamwork in Counter-Strike: Global Offensive.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>Rocket League</h2>
+    <p>Fast-paced soccer with rocket-powered cars. Score amazing goals!</p>
+  </div>
+
+  <div class="game-card">
+    <h2>League of Legends</h2>
+    <p>Strategic team battles in the famous MOBA League of Legends.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>BGMI</h2>
+    <p>Battle Royale action with friends in Battlegrounds Mobile India.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>Fortnite</h2>
+    <p>Build, fight, and survive in the colorful world of Fortnite.</p>
+  </div>
+
+  <div class="game-card">
+    <h2>Stumble Guys</h2>
+    <p>Compete in fun obstacle courses and be the last one standing!</p>
+  </div>
+
+  <div class="game-card">
+    <h2>Among Us</h2>
+    <p>Find the impostor and complete tasks with your crewmates.</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 All Rights Reserved by EzGamer
+</footer>
+
+</body>
+</html>

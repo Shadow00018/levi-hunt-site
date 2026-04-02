@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rules - Gaming Community Server</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+      --bg-start: #1f1c2c;
+      --bg-end: #928dab;
+      --text: white;
+      --accent: #ffcc00;
+    }
+
+    body.light {
+      --bg-start: #e0eafc;
+      --bg-end: #cfdef3;
+      --text: #111;
+      --accent: #ff8800;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; font-family:'Roboto',sans-serif; }
+
+    body {
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      background: linear-gradient(135deg,var(--bg-start),var(--bg-end));
+      color: var(--text);
+      transition:0.5s;
+    }
+
+    header, footer {
+      position: fixed;
+      width:100%;
+      backdrop-filter:blur(12px);
+      background: rgba(0,0,0,0.3);
+      color:var(--text);
+      z-index:1000;
+      padding:15px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    header .title { 
+      margin-left: 50%; 
+      transform: translateX(-50%); 
+      font-weight:bold; 
+      font-size:clamp(18px,2vw,26px); 
+    }
+
+    header .nav a {
+      margin-left: 25px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    header .nav a:hover { text-decoration: underline; }
+
+    footer { bottom:0; text-align:center; font-size:14px; }
+
+    main {
+      margin-top:100px;
+      padding: 20px 40px;
+      flex:1;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    h1 {
+      margin-bottom:30px;
+      text-align:center;
+      font-size:clamp(32px,5vw,50px);
+      text-shadow:0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .rule {
+      margin-bottom:25px;
+      padding:15px 20px;
+      background: rgba(0,0,0,0.25);
+      border-radius:12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      line-height:1.6;
+    }
+
+    .rule h2 {
+      font-size:clamp(20px,3vw,28px);
+      margin-bottom:10px;
+      color: var(--accent);
+    }
+
+    .rule ul {
+      list-style-type: disc;
+      margin-left:20px;
+    }
+
+    .rule ul li {
+      margin-bottom:6px;
+    }
+
+    .highlight { font-weight:bold; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="title">🎮 Gaming Community Server</div>
+  <div class="nav">
+    <a href="games.html">Games</a>
+    <a href="events.html">Events</a>
+    <a href="staff.html">Staff</a>
+    <a href="rules.html">Rules</a>
+  </div>
+</header>
+
+<main>
+  <h1>Server Rules</h1>
+
+  <div class="rule">
+    <h2>1️⃣ Respect Everyone</h2>
+    <ul>
+      <li>✅ No hate speech, racism, sexism, or personal attacks.</li>
+      <li>✅ Be kind and respectful at all times.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>2️⃣ No Toxicity</h2>
+    <ul>
+      <li>✅ Keep trash talk friendly.</li>
+      <li>✅ No spamming, trolling, or drama.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>3️⃣ Voice Chat Rules 🎤</h2>
+    <ul>
+      <li>✅ No loud mic spamming / ear-rape.</li>
+      <li>✅ Respect others in VC.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>4️⃣ No Cheats or Hacks 🚫</h2>
+    <ul>
+      <li>✅ Strictly no cheating or exploiting.</li>
+      <li>✅ Sharing cheats = instant ban.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>5️⃣ Keep Things Clean 🧹</h2>
+    <ul>
+      <li>✅ Use the right channels.</li>
+      <li>✅ No NSFW, illegal, or harmful content.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>6️⃣ Respect Staff 👑</h2>
+    <ul>
+      <li>✅ Mods/Admins have the final say.</li>
+      <li>✅ Don’t argue with staff in public chat.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>7️⃣ No Random Ads 📢</h2>
+    <ul>
+      <li>✅ Self-promotion only in the right channel (if allowed).</li>
+      <li>✅ No DM advertising.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>8️⃣ Gaming Spirit 🎮</h2>
+    <ul>
+      <li>✅ Help new players.</li>
+      <li>✅ Keep the server fun for everyone!</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>9️⃣ Follow Discord ToS 📖</h2>
+    <ul>
+      <li>✅ You must follow Discord’s Terms of Service.</li>
+      <li>⚠️ Breaking rules = warning, mute, or ban.</li>
+    </ul>
+  </div>
+
+  <div class="rule">
+    <h2>🔥 Final Note</h2>
+    <p class="highlight">Have fun, play fair, and enjoy gaming together!</p>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 All Rights Reserved by EzGamer
+</footer>
+
+</body>
+</html>
