@@ -61,9 +61,6 @@
       background: rgba(255,255,255,0.1);
     }
 
-    .toggle:hover { background: rgba(255,255,255,0.25); }
-
-    /* NAVBAR */
     .nav-links {
       position: fixed;
       top: 70px;
@@ -84,15 +81,6 @@
       font-weight: bold;
       padding: 8px 14px;
       border-radius: 10px;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover { background: rgba(255,255,255,0.2); }
-
-    /* MOBILE */
-    @media (max-width: 600px) {
-      .nav-links { gap: 10px; padding: 8px; }
-      .nav-links a { font-size: 14px; padding: 6px 10px; }
     }
 
     .box {
@@ -109,8 +97,6 @@
       margin-top:120px;
     }
 
-    h2 { margin-bottom:20px; }
-
     input, select, button {
       width:100%;
       padding:14px;
@@ -118,7 +104,6 @@
       border-radius:12px;
       border:none;
       font-size:16px;
-      outline:none;
     }
 
     button {
@@ -126,10 +111,7 @@
       color:white;
       font-weight:bold;
       cursor:pointer;
-      transition:0.3s;
     }
-
-    button:hover { transform:scale(1.05); box-shadow:0 0 20px rgba(255,255,255,0.4); }
 
     #avatar {
       width:100px;
@@ -175,8 +157,8 @@
     <option value="Hydra">🐍 Hydra</option>
   </select>
 
-  <p style="margin-top:10px; font-weight:bold;">Send CD Proof Here 📸</p>
-  <input type="file" id="file">
+  <p><b>Send CD Proof Here 📸</b></p>
+  <input type="file" id="file" accept="image/*">
 
   <button onclick="submitData()">Submit</button>
   <button onclick="goBack()">⬅ Back</button>
@@ -188,6 +170,7 @@
 
 <script>
 if(localStorage.getItem("theme")==="light") document.body.classList.add("light");
+
 function toggleTheme(){
   document.body.classList.toggle("light");
   localStorage.setItem("theme",document.body.classList.contains("light")?"light":"dark");
@@ -195,44 +178,88 @@ function toggleTheme(){
 
 window.onload = () => { document.body.classList.add("show"); }
 
-function goBack(){ document.body.classList.remove("show"); setTimeout(()=>{ window.location.href="index.html"; },400); }
+function goBack(){
+  document.body.classList.remove("show");
+  setTimeout(()=>{ window.location.href="index.html"; },400);
+}
 
+// Avatar preview
 const usernameInput = document.getElementById("username");
 const avatarImg = document.getElementById("avatar");
 
 usernameInput.addEventListener("change",()=>{
   const user = usernameInput.value.trim();
-  if(user){ avatarImg.src = `https://www.roblox.com/bust-thumbnail/image?username=${user}&width=150&height=150&format=png`; avatarImg.style.display = "block"; }
-  else avatarImg.style.display="none";
+  if(user){
+    avatarImg.src = `https://www.roblox.com/bust-thumbnail/image?username=${user}&width=150&height=150&format=png`;
+    avatarImg.style.display = "block";
+  } else avatarImg.style.display="none";
 });
 
-// PARTICLES
+// Background particles
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-const particles=[]; for(let i=0;i<120;i++){ particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5}); }
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function animate(){ ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(p=>{ ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle="rgba(255,255,255,0.5)"; ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0||p.x>canvas.width)p.dx*=-1; if(p.y<0||p.y>canvas.height)p.dy*=-1; }); requestAnimationFrame(animate); }
+const particles=[];
+for(let i=0;i<100;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2+1,
+    dx:(Math.random()-0.5)*0.5,
+    dy:(Math.random()-0.5)*0.5
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,255,255,0.5)";
+    ctx.fill();
+
+    p.x+=p.dx;
+    p.y+=p.dy;
+
+    if(p.x<0||p.x>canvas.width)p.dx*=-1;
+    if(p.y<0||p.y>canvas.height)p.dy*=-1;
+  });
+  requestAnimationFrame(animate);
+}
 animate();
-window.addEventListener('resize',()=>{ canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
 
-// FORM SUBMIT
-async function submitData(){
+window.addEventListener('resize',()=>{
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+});
+
+// Submit
+let lastSubmit = 0;
+
+function submitData(){
+  const now = Date.now();
+  if(now - lastSubmit < 5000){
+    document.getElementById("status").innerText = "⏳ Please wait...";
+    return;
+  }
+  lastSubmit = now;
+
   const user = usernameInput.value.trim();
   const lvl = document.getElementById("level").value;
   const discord = document.getElementById("discord").value.trim();
   const loc = document.getElementById("location").value;
-  const fileInput = document.getElementById("file");
-  const file = fileInput.files[0];
+  const file = document.getElementById("file").files[0];
 
-  if(!user || !lvl || !loc || !file || !discord){
-    document.getElementById("status").innerText="Please fill all fields!";
+  if(!user || !lvl || !loc || !discord){
+    document.getElementById("status").innerText="Fill all required fields!";
     return;
   }
 
   document.getElementById("status").innerText="Submitting...";
 
-  const webhookURL = "https://discord.com/api/webhooks/1489190744483823709/Ec6U3EjtIhZmP84Vjs4d2VU0p4AKa76Xdbxvk4Y2zu5mfUmE3OGdbf_-RNPKx_s-qULZ"; // Replace with your webhook
+  const webhookURL = "https://discord.com/api/webhooks/1489190744483823709/Ec6U3EjtIhZmP84Vjs4d2VU0p4AKa76Xdbxvk4Y2zu5mfUmE3OGdbf_-RNPKx_s-qULZ";
 
   const payload = {
     username: "Levi Hunt Bot",
@@ -243,7 +270,7 @@ async function submitData(){
       fields:[
         {name:"Username", value:user, inline:true},
         {name:"Level", value:lvl, inline:true},
-        {name:"Discord ID", value:discord, inline:true},
+        {name:"Discord", value:discord, inline:true},
         {name:"Location", value:loc, inline:true}
       ]
     }]
@@ -251,14 +278,16 @@ async function submitData(){
 
   const form = new FormData();
   form.append("payload_json", JSON.stringify(payload));
-  form.append("file", file, file.name);
 
-  try{
-    await fetch(webhookURL,{ method:"POST", body:form });
-    window.location.href = "thankyou.html"; // redirect after submit
-  } catch(err){
-    document.getElementById("status").innerText="Submission failed.";
+  if(file){
+    form.append("file", file, file.name);
   }
+
+  // Send without waiting
+  fetch(webhookURL,{ method:"POST", body:form });
+
+  // Instant redirect
+  window.location.href = "thankyou.html";
 }
 </script>
 
